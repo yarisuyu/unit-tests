@@ -48,12 +48,6 @@ test('filter array with empty object as predicator to equal the same array', () 
   expect(filter(arr)).not.toBe(arr);
 });
 
-test('filter array with empty object as predicator to equal the same array', () => {
-  const arr = ['a', 'b', 'c'];
-  expect(filter(arr, {})).toStrictEqual(arr);
-  expect(filter(arr)).not.toBe(arr);
-});
-
 test('filter array with notActive function as predicator to array with matching items', () => {
   var users = [
     { 'user': 'barney', 'age': 36, 'active': true },
