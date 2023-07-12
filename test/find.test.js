@@ -62,7 +62,7 @@ test('find in array with matches predicator to equal the first matching element 
   expect(find(users, { 'age': 1, 'active': true })).toStrictEqual({ 'user': 'pebbles', 'age': 1,  'active': true });
 });
 
-test('find array with matchesProperty predicator to equal the first matching element in the array', () => {
+test('find in array with matchesProperty predicator to equal the first matching element in the array', () => {
   var users = [
     { 'user': 'barney',  'age': 36, 'active': true },
     { 'user': 'fred',    'age': 40, 'active': false },
@@ -71,11 +71,47 @@ test('find array with matchesProperty predicator to equal the first matching ele
   expect(find(users, ['active', false])).toStrictEqual({ 'user': 'fred', 'age': 40, 'active': false });
 });
 
-test('find array with property predicator to equal  the first matching element in the array', () => {
+test('find in array with property predicator to equal  the first matching element in the array', () => {
   var users = [
     { 'user': 'barney',  'age': 36, 'active': true },
     { 'user': 'fred',    'age': 40, 'active': false },
     { 'user': 'pebbles', 'age': 1,  'active': true }
   ];
   expect(find(users, 'active')).toStrictEqual({ 'user': 'barney',  'age': 36, 'active': true });
+});
+
+test('find in array with identity predicator, start from -1 to equal the last element in the array', () => {
+  var users = [
+    { 'user': 'barney',  'age': 36, 'active': true },
+    { 'user': 'fred',    'age': 40, 'active': false },
+    { 'user': 'pebbles', 'age': 1,  'active': true }
+  ];
+  expect(find(users, item => item, -1)).toStrictEqual({ 'user': 'pebbles', 'age': 1,  'active': true });
+});
+
+test('find in array with identity predicator, start from 0 to equal the first element in the array', () => {
+  var users = [
+    { 'user': 'barney',  'age': 36, 'active': true },
+    { 'user': 'fred',    'age': 40, 'active': false },
+    { 'user': 'pebbles', 'age': 1,  'active': true }
+  ];
+  expect(find(users, item => item, 0)).toStrictEqual({ 'user': 'barney',  'age': 36, 'active': true });
+});
+
+test('find in array with identity predicator, start from 1 to equal the first matching element in the array', () => {
+  var users = [
+    { 'user': 'barney',  'age': 36, 'active': true },
+    { 'user': 'fred',    'age': 40, 'active': false },
+    { 'user': 'pebbles', 'age': 1,  'active': true }
+  ];
+  expect(find(users, item => item, 1)).toStrictEqual({ 'user': 'fred',    'age': 40, 'active': false });
+});
+
+test('find in array of 3 elements with identity predicator, start from 3 to be undefined', () => {
+  var users = [
+    { 'user': 'barney',  'age': 36, 'active': true },
+    { 'user': 'fred',    'age': 40, 'active': false },
+    { 'user': 'pebbles', 'age': 1,  'active': true }
+  ];
+  expect(find(users, item => item, 3)).toBeUndefined();
 });
