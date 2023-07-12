@@ -1,0 +1,23 @@
+{
+  "name": "unit-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yarisuyu/unit-tests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yarisuyu/unit-tests/issues"
+  },
+  "homepage": "https://github.com/yarisuyu/unit-tests#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.22.5",
+    "jest": "^29.6.1"
+  }
+}
