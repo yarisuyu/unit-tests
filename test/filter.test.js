@@ -1,4 +1,4 @@
-import filter from '../filter';
+import { filter } from '../filter';
 
 test('filter without parameters to equal empty array', () => {
   expect(filter()).toStrictEqual([]);

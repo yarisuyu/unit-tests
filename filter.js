@@ -44,5 +44,3 @@ export function filter(array, predicate = item => item) {
 
   return result;
 }
-
-export default filter;
