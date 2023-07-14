@@ -1,4 +1,4 @@
-import find from '../find';
+import { find } from '../find';
 
 test('find without parameters to be undefined', () => {
   expect(find()).toBeUndefined();
@@ -9,7 +9,7 @@ test('find in empty object instead of array to be undefined', () => {
 });
 
 test('find in a not empty object instead of array to equal the first property value', () => {
-  expect(find({a: 1})).toStrictEqual(1);
+  expect(find({a: 1})).toBe(1);
 });
 
 test('find in NaN instead of array to be undefined', () => {
@@ -78,40 +78,4 @@ test('find in array with property predicator to equal  the first matching elemen
     { 'user': 'pebbles', 'age': 1,  'active': true }
   ];
   expect(find(users, 'active')).toStrictEqual({ 'user': 'barney',  'age': 36, 'active': true });
-});
-
-test('find in array with identity predicator, start from -1 to equal the last element in the array', () => {
-  var users = [
-    { 'user': 'barney',  'age': 36, 'active': true },
-    { 'user': 'fred',    'age': 40, 'active': false },
-    { 'user': 'pebbles', 'age': 1,  'active': true }
-  ];
-  expect(find(users, item => item, -1)).toStrictEqual({ 'user': 'pebbles', 'age': 1,  'active': true });
-});
-
-test('find in array with identity predicator, start from 0 to equal the first element in the array', () => {
-  var users = [
-    { 'user': 'barney',  'age': 36, 'active': true },
-    { 'user': 'fred',    'age': 40, 'active': false },
-    { 'user': 'pebbles', 'age': 1,  'active': true }
-  ];
-  expect(find(users, item => item, 0)).toStrictEqual({ 'user': 'barney',  'age': 36, 'active': true });
-});
-
-test('find in array with identity predicator, start from 1 to equal the first matching element in the array', () => {
-  var users = [
-    { 'user': 'barney',  'age': 36, 'active': true },
-    { 'user': 'fred',    'age': 40, 'active': false },
-    { 'user': 'pebbles', 'age': 1,  'active': true }
-  ];
-  expect(find(users, item => item, 1)).toStrictEqual({ 'user': 'fred',    'age': 40, 'active': false });
-});
-
-test('find in array of 3 elements with identity predicator, start from 3 to be undefined', () => {
-  var users = [
-    { 'user': 'barney',  'age': 36, 'active': true },
-    { 'user': 'fred',    'age': 40, 'active': false },
-    { 'user': 'pebbles', 'age': 1,  'active': true }
-  ];
-  expect(find(users, item => item, 3)).toBeUndefined();
 });

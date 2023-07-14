@@ -20,14 +20,15 @@ import { predicateHandler } from './utils/predicateHandler';
 // => objects for ['barney'] */
 
 export function filter(array, predicate = item => item) {
+  const DEFAULT_RESULT = [];
   if (!Array.isArray(array)) {
     if (typeof array === 'object') {
       return Object.values(array);
     }
-    return [];
+    return DEFAULT_RESULT;
   }
 
-  const result = [];
+  const result = DEFAULT_RESULT;
   try {
     const matchesFunc = predicateHandler(predicate);
 
@@ -38,7 +39,7 @@ export function filter(array, predicate = item => item) {
     }
   }
   catch {
-    return [];
+    return DEFAULT_RESULT;
   }
 
   return result;
