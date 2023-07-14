@@ -1,4 +1,4 @@
-import compact from '../compact';
+import { compact } from '../compact';
 
 test('compact without parameters to equal empty array', () => {
   expect(compact()).toStrictEqual([]);
@@ -29,6 +29,6 @@ test('compact array of falsy values to equal empty array', () => {
 });
 
 test('compact array of values often mixed with falsy values to equal the same array', () => {
-    const arr = ["0", true, 1, ' ', , {}, [], "false", -1, new Date(), Infinity, -Infinity];
+    const arr = ["0", true, 1, ' ', {}, [], "false", -1, new Date(), Infinity, -Infinity];
     expect(compact(arr)).toEqual(arr);
 });
