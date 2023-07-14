@@ -1,4 +1,4 @@
-import dropWhile from '../dropWhile';
+import { dropWhile } from '../dropWhile';
 
 test('dropWhile without parameters to equal empty array', () => {
   expect(dropWhile()).toStrictEqual([]);
@@ -43,14 +43,14 @@ test('dropWhile from array with a functional isActive predicate by to equal the 
     { 'user': 'fred',    'active': false },
     { 'user': 'pebbles', 'active': true }
   ];
-  expect(dropWhile(users, function (o) { return !o.active; }).toStrictEqual(
+  expect(dropWhile(users, function (o) { return !o.active; })).toStrictEqual(
     [
       {
         active: true,
         user: "pebbles"
       }
     ]
-  ));
+  );
 });
 
 test('dropWhile from array with a "matches" predicate by to equal the matching element', () => {
@@ -60,7 +60,7 @@ test('dropWhile from array with a "matches" predicate by to equal the matching e
     { 'user': 'fred',    'active': false },
     { 'user': 'pebbles', 'active': true }
   ];
-  expect(dropWhile(users, { 'user': 'barney', 'active': false }).toStrictEqual([
+  expect(dropWhile(users, { 'user': 'barney', 'active': false })).toStrictEqual([
     {
       active: false,
       user: "fred"
@@ -68,7 +68,7 @@ test('dropWhile from array with a "matches" predicate by to equal the matching e
       active: true,
       user: "pebbles"
     }
-  ]));
+  ]);
 });
 
 test('dropWhile from array with a "matchesProperty" predicate by to equal the matching element', () => {
@@ -78,14 +78,14 @@ test('dropWhile from array with a "matchesProperty" predicate by to equal the ma
     { 'user': 'fred',    'active': false },
     { 'user': 'pebbles', 'active': true }
   ];
-  expect(dropWhile(users, ['active', false]).toStrictEqual(
+  expect(dropWhile(users, ['active', false])).toEqual(
     [
       {
         active: true,
         user: "pebbles"
       }
     ]
-  ));
+  );
 });
 
 test('dropWhile from array with a "property" predicate by to equal the matching elements', () => {
@@ -95,5 +95,5 @@ test('dropWhile from array with a "property" predicate by to equal the matching 
     { 'user': 'fred',    'active': false },
     { 'user': 'pebbles', 'active': true }
   ];
-  expect(dropWhile(users, 'active').toStrictEqual(users));
+  expect(dropWhile(users, 'active')).toStrictEqual(users);
 });

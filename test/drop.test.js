@@ -1,4 +1,4 @@
-import drop from '../drop';
+import { drop } from '../drop';
 
 test('drop without parameters to equal empty array', () => {
   expect(drop()).toStrictEqual([]);
