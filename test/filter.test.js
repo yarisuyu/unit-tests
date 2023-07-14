@@ -53,7 +53,7 @@ test('filter array with notActive function as predicator to array with matching 
     { 'user': 'barney', 'age': 36, 'active': true },
     { 'user': 'fred',   'age': 40, 'active': false }
   ];
-  exprct(filter(users, function (o) { return !o.active; }))
+  expect(filter(users, function (o) { return !o.active; }))
     .toStrictEqual([{ 'user': 'fred', 'age': 40, 'active': false }]);
   expect(filter(users, function (o) { return !o.active; })).not.toEqual(users);
 });
@@ -63,9 +63,9 @@ test('filter array with matches predicator to equal array with matching items', 
     { 'user': 'barney', 'age': 36, 'active': true },
     { 'user': 'fred',   'age': 40, 'active': false }
   ];
-  exprct(filter(users, { 'age': 36, 'active': true }))
+  expect(filter(users, { 'age': 36, 'active': true }))
     .toStrictEqual([{ 'user': 'barney', 'age': 36, 'active': true }]);
-  expect(filter(users, { 'age': 36, 'active': true })).not.toEqual(users);
+  expect(filter(users, { 'age': 36, 'active': true })).not.toBe(users);
 });
 
 test('filter array with matchesProperty predicator to equal array with matching items', () => {
@@ -73,7 +73,7 @@ test('filter array with matchesProperty predicator to equal array with matching 
     { 'user': 'barney', 'age': 36, 'active': true },
     { 'user': 'fred',   'age': 40, 'active': false }
   ];
-  exprct(filter(users, ['active', false]))
+  expect(filter(users, ['active', false]))
     .toStrictEqual([{ 'user': 'fred', 'age': 40, 'active': false }]);
   expect(filter(users, ['active', false])).not.toEqual(users);
 });
@@ -83,7 +83,7 @@ test('filter array with property predicator to equal array with matching items',
     { 'user': 'barney', 'age': 36, 'active': true },
     { 'user': 'fred',   'age': 40, 'active': false }
   ];
-  exprct(filter(users, 'active'))
+  expect(filter(users, 'active'))
     .toStrictEqual([{ 'user': 'barney', 'age': 36, 'active': true }]);
   expect(filter(users, 'active')).not.toEqual(users);
 });
