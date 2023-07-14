@@ -16,9 +16,6 @@ export function pickBy(obj, predicate = item => item) {
     const matchesFunc = predicateHandler(predicate);
     const keys = Object.keys(obj);
     for (let i = 0; i < keys.length; i += 1) {
-      console.log(keys[i]);
-      console.log(obj[keys[i]]);
-      console.log(matchesFunc(obj[keys[i]]));
       if (matchesFunc(obj[keys[i]])) {
         result[keys[i]] = obj[keys[i]];
       }
