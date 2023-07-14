@@ -1,4 +1,4 @@
-import chunk from '../compact';
+import { chunk } from '../chunk';
 
 test('chunk without parameters to equal empty array', () => {
   expect(chunk()).toStrictEqual([]);
