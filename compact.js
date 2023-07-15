@@ -9,11 +9,15 @@ export function compact(array) {
   }
 
   const result = DEFAULT_RESULT;
+  result.length = array.length;
+  let resultLength = 0;
   for (let i = 0; i < array.length; i += 1) {
     if (array[i]) {
-      result.push(array[i]);
+      resultLength += 1;
+      result[resultLength - 1] = array[i];
     }
   }
+  result.length = resultLength;
 
   return result;
 }
