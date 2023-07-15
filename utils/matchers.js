@@ -10,7 +10,7 @@ export const matches = (predicate) => item => {
   return matches;
 };
 
-export const matchesFunction = (predicate) => (item) => predicate(item);
+export const matchesFunction = (predicate) => (item, index, collection) => predicate(item, index, collection);
 
 export const matchesProperty = (predicate) => (item => item[predicate[0]] === predicate[1]);
 
