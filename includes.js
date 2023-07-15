@@ -14,7 +14,6 @@ _.includes('abcd', 'bc');
 
 export function includes(array, value, fromIndex = 0) {
   const DEFAULT_RESULT = false;
-  console.log(array);
   if (!Array.isArray(array)) {
     return DEFAULT_RESULT;
   }

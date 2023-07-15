@@ -25,7 +25,6 @@ _.find(users, 'active');
 
 export function find(array, predicate = item => item) {
   const DEFAULT_RESULT = undefined;
-  console.log(array);
   if (!Array.isArray(array)) {
     if (typeof array === 'object') {
       return Object.values(array).at(0);

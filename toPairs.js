@@ -12,11 +12,9 @@ _.toPairs(new Foo);
 export function toPairs(obj) {
   const DEFAULT_RESULT = [];
   if (typeof obj !== 'object') {
-    console.log(typeof obj);
     return DEFAULT_RESULT;
   }
 
-  console.log(obj);
   const result = [];
   const keys = Object.keys(obj);
   for (let i = 0; i < keys.length; i += 1) {
