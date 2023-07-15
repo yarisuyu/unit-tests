@@ -12,15 +12,18 @@ export function chunk(array, size = 1) {
     }
 
     const result = DEFAULT_RESULT;
+    const resultLength = Math.ceil(array.length / size);
+    result.length = resultLength;
     let i = 0;
     while (i < array.length) {
         let j = 0;
         const chunk = [];
+        chunk.length = array.length - i > 0 ? Math.min(size, array.length - i) : 0;
         while (j < size && i + j < array.length) {
-            chunk.push(array[i + j]);
+            chunk[j] = (array[i + j]);
             j += 1;
         }
-        result.push(chunk);
+        result[Math.floor(i / size)] = chunk;
         i += size;
     }
 
