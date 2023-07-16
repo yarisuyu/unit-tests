@@ -9,16 +9,18 @@ Foo.prototype.c = 3;
 
 _.toPairs(new Foo);
 // => [['a', 1], ['b', 2]] (iteration order is not guaranteed) */
+
 export function toPairs(obj) {
   const DEFAULT_RESULT = [];
   if (typeof obj !== 'object') {
     return DEFAULT_RESULT;
   }
 
-  const result = [];
+  const result = DEFAULT_RESULT;
   const keys = Object.keys(obj);
+  result.length = keys.length;
   for (let i = 0; i < keys.length; i += 1) {
-    result.push([keys[i], obj[keys[i]]]);
+    result[i] = [keys[i], obj[keys[i]]];
   }
   return result;
 }

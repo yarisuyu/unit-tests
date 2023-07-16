@@ -21,10 +21,10 @@ export function take(array, n = 1) {
   }
 
   const result = DEFAULT_RESULT;
+  result.length = Math.min(array.length, n);
   for (let i = 0; i < array.length && i < n; i += 1) {
-    result.push(array[i]);
+    result[i] = array[i];
   }
 
   return result;
-
 }

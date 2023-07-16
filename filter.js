@@ -32,11 +32,15 @@ export function filter(array, predicate = item => item) {
   try {
     const matchesFunc = predicateHandler(predicate);
 
+    result.length = array.length;
+    let resultLength = 0;
     for (let i = 0; i < array.length; i += 1) {
       if (matchesFunc(array[i])) {
-        result.push(array[i]);
+        resultLength += 1;
+        result[resultLength - 1] = array[i];
       }
     }
+    result.length = resultLength;
   }
   catch {
     return DEFAULT_RESULT;

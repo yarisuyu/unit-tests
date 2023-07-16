@@ -28,7 +28,6 @@ export function dropWhile(array, predicate = item => item) {
     return DEFAULT_RESULT;
   }
 
-  const result = DEFAULT_RESULT;
   try {
     const matchesFunc = predicateHandler(predicate);
 
@@ -42,13 +41,15 @@ export function dropWhile(array, predicate = item => item) {
       }
     }
 
+    const result = DEFAULT_RESULT;
+    result.length = Math.max(array.length - i, 0);
     for (let j = i; j < array.length; j += 1) {
-      result.push(array[j]);
+      result[j - i] = array[j];
     }
 
     return result;
   }
-  catch (Error) {
+  catch {
     return array;
   }
 }
