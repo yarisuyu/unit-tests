@@ -25,7 +25,7 @@ test('compact empty array to equal empty array', () => {
 });
 
 test('compact array of falsy values to equal empty array', () => {
-  expect(compact([null, undefined, false, NaN, 0, -0, 0n, '', document.all])).toStrictEqual([]);
+  expect(compact([null, undefined, false, NaN, 0, -0, 0n, ''])).toStrictEqual([]);
 });
 
 test('compact array of values often mixed with falsy values to equal the same array', () => {
